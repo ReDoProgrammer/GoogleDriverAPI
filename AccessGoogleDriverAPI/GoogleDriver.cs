@@ -47,9 +47,11 @@ namespace AccessGoogleDriverAPI
                     ApplicationName = ApplicationName,
                 });
 
+              
+
                 FilesResource.ListRequest listRequest = service.Files.List();
                 listRequest.PageSize = 10;
-                listRequest.Fields = "nextPageToken, files(id, name)";
+                listRequest.Fields = "nextPageToken, files(id, name, thumbnailLink)";
                 return listRequest.Execute().Files;
             }
             catch (Exception ex)
