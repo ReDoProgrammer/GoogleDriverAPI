@@ -1,6 +1,8 @@
-﻿using Google.Apis.Auth.OAuth2;
+﻿using System.Web;
+using Google.Apis.Auth.OAuth2;
 using Google.Apis.Drive.v3;
 using Google.Apis.Services;
+using System.Web;
 using Google.Apis.Util.Store;
 using System;
 using System.Collections.Generic;
@@ -10,6 +12,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net.Http;
 
 namespace AccessGoogleDriverAPI
 {
@@ -19,6 +22,7 @@ namespace AccessGoogleDriverAPI
         static string[] Scopes = { DriveService.Scope.DriveReadonly };
         static string ApplicationName = "Google Driver";
         public UserCredential credential;
+       static DriveService service;
         public GoogleDriver()
         {
             using (var stream =
@@ -33,7 +37,12 @@ namespace AccessGoogleDriverAPI
                     "user",
                     CancellationToken.None,
                     new FileDataStore(credPath, true)).Result;
-                Console.WriteLine("Credential file saved to: " + credPath);
+
+                service = new DriveService(new BaseClientService.Initializer()
+                {
+                    HttpClientInitializer = credential,
+                    ApplicationName = ApplicationName,
+                });
             }
         }
 
@@ -41,15 +50,8 @@ namespace AccessGoogleDriverAPI
         {
             try
             {
-                var service = new DriveService(new BaseClientService.Initializer()
-                {
-                    HttpClientInitializer = credential,
-                    ApplicationName = ApplicationName,
-                });
-
-              
-
-                FilesResource.ListRequest listRequest = service.Files.List();
+             
+               FilesResource.ListRequest listRequest = service.Files.List();
                 listRequest.PageSize = 10;
                 listRequest.Fields = "nextPageToken, files(id, name, thumbnailLink)";
                 return listRequest.Execute().Files;
@@ -60,5 +62,23 @@ namespace AccessGoogleDriverAPI
                 return null;
             }      
         }
+
+
+
+        public static void CreateFolderOnDrive(string Folder_Name)
+        {
+            Google.Apis.Drive.v3.Data.File FileMetaData = new
+            Google.Apis.Drive.v3.Data.File();
+            FileMetaData.Name = Folder_Name;
+            FileMetaData.MimeType = "application/vnd.google-apps.folder";
+
+            FilesResource.CreateRequest request;
+
+            request = service.Files.Create(FileMetaData);
+            request.Fields = "id";
+            var file = request.Execute();
+        }
+
+
     }
 }

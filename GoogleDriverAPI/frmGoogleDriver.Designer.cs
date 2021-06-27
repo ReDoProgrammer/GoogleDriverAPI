@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGoogleDriver));
             this.pnlTop = new System.Windows.Forms.Panel();
             this.pnlBottom = new System.Windows.Forms.Panel();
@@ -39,11 +40,21 @@
             this.ptbStatus = new System.Windows.Forms.PictureBox();
             this.ptbExit = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.lsvFile = new System.Windows.Forms.ListView();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.btnForward = new System.Windows.Forms.Button();
+            this.txtFilePath = new System.Windows.Forms.TextBox();
+            this.btnGo = new System.Windows.Forms.Button();
+            this.imglFiles = new System.Windows.Forms.ImageList(this.components);
             this.pnlTop.SuspendLayout();
+            this.grbContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlTop
@@ -85,6 +96,9 @@
             // 
             // grbContent
             // 
+            this.grbContent.Controls.Add(this.lsvFile);
+            this.grbContent.Controls.Add(this.treeView1);
+            this.grbContent.Controls.Add(this.panel1);
             this.grbContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grbContent.Location = new System.Drawing.Point(10, 35);
             this.grbContent.Name = "grbContent";
@@ -148,6 +162,88 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.txtFilePath);
+            this.panel1.Controls.Add(this.btnGo);
+            this.panel1.Controls.Add(this.btnForward);
+            this.panel1.Controls.Add(this.btnBack);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(3, 16);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(994, 28);
+            this.panel1.TabIndex = 0;
+            // 
+            // treeView1
+            // 
+            this.treeView1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.treeView1.Location = new System.Drawing.Point(3, 44);
+            this.treeView1.Name = "treeView1";
+            this.treeView1.Size = new System.Drawing.Size(214, 451);
+            this.treeView1.TabIndex = 1;
+            // 
+            // lsvFile
+            // 
+            this.lsvFile.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lsvFile.LargeImageList = this.imglFiles;
+            this.lsvFile.Location = new System.Drawing.Point(217, 44);
+            this.lsvFile.Name = "lsvFile";
+            this.lsvFile.Size = new System.Drawing.Size(780, 451);
+            this.lsvFile.TabIndex = 2;
+            this.lsvFile.UseCompatibleStateImageBehavior = false;
+            // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.Teal;
+            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.ForeColor = System.Drawing.Color.White;
+            this.btnBack.Location = new System.Drawing.Point(3, 5);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(40, 23);
+            this.btnBack.TabIndex = 0;
+            this.btnBack.Text = "<<";
+            this.btnBack.UseVisualStyleBackColor = false;
+            // 
+            // btnForward
+            // 
+            this.btnForward.BackColor = System.Drawing.Color.Teal;
+            this.btnForward.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnForward.ForeColor = System.Drawing.Color.White;
+            this.btnForward.Location = new System.Drawing.Point(44, 5);
+            this.btnForward.Name = "btnForward";
+            this.btnForward.Size = new System.Drawing.Size(40, 23);
+            this.btnForward.TabIndex = 0;
+            this.btnForward.Text = ">>";
+            this.btnForward.UseVisualStyleBackColor = false;
+            // 
+            // txtFilePath
+            // 
+            this.txtFilePath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtFilePath.Location = new System.Drawing.Point(90, 7);
+            this.txtFilePath.Name = "txtFilePath";
+            this.txtFilePath.ReadOnly = true;
+            this.txtFilePath.Size = new System.Drawing.Size(855, 20);
+            this.txtFilePath.TabIndex = 1;
+            // 
+            // btnGo
+            // 
+            this.btnGo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGo.BackColor = System.Drawing.Color.Teal;
+            this.btnGo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGo.ForeColor = System.Drawing.Color.White;
+            this.btnGo.Location = new System.Drawing.Point(951, 5);
+            this.btnGo.Name = "btnGo";
+            this.btnGo.Size = new System.Drawing.Size(40, 23);
+            this.btnGo.TabIndex = 0;
+            this.btnGo.Text = "Go!";
+            this.btnGo.UseVisualStyleBackColor = false;
+            // 
+            // imglFiles
+            // 
+            this.imglFiles.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imglFiles.ImageSize = new System.Drawing.Size(32, 64);
+            this.imglFiles.TransparentColor = System.Drawing.Color.Transparent;
+            // 
             // frmGoogleDriver
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -167,10 +263,13 @@
             this.Load += new System.EventHandler(this.GoogleDriver_Load);
             this.pnlTop.ResumeLayout(false);
             this.pnlTop.PerformLayout();
+            this.grbContent.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ptbMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbExit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -187,6 +286,14 @@
         private System.Windows.Forms.PictureBox ptbMinimize;
         private System.Windows.Forms.PictureBox ptbStatus;
         private System.Windows.Forms.PictureBox ptbExit;
+        private System.Windows.Forms.ListView lsvFile;
+        private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox txtFilePath;
+        private System.Windows.Forms.Button btnGo;
+        private System.Windows.Forms.Button btnForward;
+        private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.ImageList imglFiles;
     }
 }
 
