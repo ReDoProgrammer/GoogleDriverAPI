@@ -31,29 +31,29 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGoogleDriver));
             this.pnlTop = new System.Windows.Forms.Panel();
-            this.pnlBottom = new System.Windows.Forms.Panel();
-            this.pnlLeft = new System.Windows.Forms.Panel();
-            this.pnlRight = new System.Windows.Forms.Panel();
-            this.grbContent = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.ptbMinimize = new System.Windows.Forms.PictureBox();
             this.ptbStatus = new System.Windows.Forms.PictureBox();
             this.ptbExit = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pnlBottom = new System.Windows.Forms.Panel();
+            this.pnlLeft = new System.Windows.Forms.Panel();
+            this.pnlRight = new System.Windows.Forms.Panel();
+            this.grbContent = new System.Windows.Forms.GroupBox();
             this.lsvFile = new System.Windows.Forms.ListView();
-            this.btnBack = new System.Windows.Forms.Button();
-            this.btnForward = new System.Windows.Forms.Button();
+            this.imglFiles = new System.Windows.Forms.ImageList(this.components);
+            this.tvFolders = new System.Windows.Forms.TreeView();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.txtFilePath = new System.Windows.Forms.TextBox();
             this.btnGo = new System.Windows.Forms.Button();
-            this.imglFiles = new System.Windows.Forms.ImageList(this.components);
+            this.btnForward = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             this.pnlTop.SuspendLayout();
-            this.grbContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.grbContent.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,53 +69,6 @@
             this.pnlTop.Name = "pnlTop";
             this.pnlTop.Size = new System.Drawing.Size(1020, 35);
             this.pnlTop.TabIndex = 1;
-            // 
-            // pnlBottom
-            // 
-            this.pnlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlBottom.Location = new System.Drawing.Point(0, 533);
-            this.pnlBottom.Name = "pnlBottom";
-            this.pnlBottom.Size = new System.Drawing.Size(1020, 25);
-            this.pnlBottom.TabIndex = 1;
-            // 
-            // pnlLeft
-            // 
-            this.pnlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlLeft.Location = new System.Drawing.Point(0, 35);
-            this.pnlLeft.Name = "pnlLeft";
-            this.pnlLeft.Size = new System.Drawing.Size(10, 498);
-            this.pnlLeft.TabIndex = 1;
-            // 
-            // pnlRight
-            // 
-            this.pnlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlRight.Location = new System.Drawing.Point(1010, 35);
-            this.pnlRight.Name = "pnlRight";
-            this.pnlRight.Size = new System.Drawing.Size(10, 498);
-            this.pnlRight.TabIndex = 1;
-            // 
-            // grbContent
-            // 
-            this.grbContent.Controls.Add(this.lsvFile);
-            this.grbContent.Controls.Add(this.treeView1);
-            this.grbContent.Controls.Add(this.panel1);
-            this.grbContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grbContent.Location = new System.Drawing.Point(10, 35);
-            this.grbContent.Name = "grbContent";
-            this.grbContent.Size = new System.Drawing.Size(1000, 498);
-            this.grbContent.TabIndex = 2;
-            this.grbContent.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(41, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Google Driver";
             // 
             // ptbMinimize
             // 
@@ -162,25 +115,52 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // panel1
+            // label1
             // 
-            this.panel1.Controls.Add(this.txtFilePath);
-            this.panel1.Controls.Add(this.btnGo);
-            this.panel1.Controls.Add(this.btnForward);
-            this.panel1.Controls.Add(this.btnBack);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(3, 16);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(994, 28);
-            this.panel1.TabIndex = 0;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(41, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(85, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Google Driver";
             // 
-            // treeView1
+            // pnlBottom
             // 
-            this.treeView1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.treeView1.Location = new System.Drawing.Point(3, 44);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(214, 451);
-            this.treeView1.TabIndex = 1;
+            this.pnlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlBottom.Location = new System.Drawing.Point(0, 533);
+            this.pnlBottom.Name = "pnlBottom";
+            this.pnlBottom.Size = new System.Drawing.Size(1020, 25);
+            this.pnlBottom.TabIndex = 1;
+            // 
+            // pnlLeft
+            // 
+            this.pnlLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlLeft.Location = new System.Drawing.Point(0, 35);
+            this.pnlLeft.Name = "pnlLeft";
+            this.pnlLeft.Size = new System.Drawing.Size(10, 498);
+            this.pnlLeft.TabIndex = 1;
+            // 
+            // pnlRight
+            // 
+            this.pnlRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnlRight.Location = new System.Drawing.Point(1010, 35);
+            this.pnlRight.Name = "pnlRight";
+            this.pnlRight.Size = new System.Drawing.Size(10, 498);
+            this.pnlRight.TabIndex = 1;
+            // 
+            // grbContent
+            // 
+            this.grbContent.Controls.Add(this.lsvFile);
+            this.grbContent.Controls.Add(this.tvFolders);
+            this.grbContent.Controls.Add(this.panel1);
+            this.grbContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grbContent.Location = new System.Drawing.Point(10, 35);
+            this.grbContent.Name = "grbContent";
+            this.grbContent.Size = new System.Drawing.Size(1000, 498);
+            this.grbContent.TabIndex = 2;
+            this.grbContent.TabStop = false;
             // 
             // lsvFile
             // 
@@ -192,29 +172,32 @@
             this.lsvFile.TabIndex = 2;
             this.lsvFile.UseCompatibleStateImageBehavior = false;
             // 
-            // btnBack
+            // imglFiles
             // 
-            this.btnBack.BackColor = System.Drawing.Color.Teal;
-            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.ForeColor = System.Drawing.Color.White;
-            this.btnBack.Location = new System.Drawing.Point(3, 5);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(40, 23);
-            this.btnBack.TabIndex = 0;
-            this.btnBack.Text = "<<";
-            this.btnBack.UseVisualStyleBackColor = false;
+            this.imglFiles.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imglFiles.ImageSize = new System.Drawing.Size(32, 64);
+            this.imglFiles.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // btnForward
+            // tvFolders
             // 
-            this.btnForward.BackColor = System.Drawing.Color.Teal;
-            this.btnForward.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnForward.ForeColor = System.Drawing.Color.White;
-            this.btnForward.Location = new System.Drawing.Point(44, 5);
-            this.btnForward.Name = "btnForward";
-            this.btnForward.Size = new System.Drawing.Size(40, 23);
-            this.btnForward.TabIndex = 0;
-            this.btnForward.Text = ">>";
-            this.btnForward.UseVisualStyleBackColor = false;
+            this.tvFolders.Dock = System.Windows.Forms.DockStyle.Left;
+            this.tvFolders.Location = new System.Drawing.Point(3, 44);
+            this.tvFolders.Name = "tvFolders";
+            this.tvFolders.Size = new System.Drawing.Size(214, 451);
+            this.tvFolders.TabIndex = 1;
+            this.tvFolders.Click += new System.EventHandler(this.tvFolders_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.txtFilePath);
+            this.panel1.Controls.Add(this.btnGo);
+            this.panel1.Controls.Add(this.btnForward);
+            this.panel1.Controls.Add(this.btnBack);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(3, 16);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(994, 28);
+            this.panel1.TabIndex = 0;
             // 
             // txtFilePath
             // 
@@ -238,11 +221,29 @@
             this.btnGo.Text = "Go!";
             this.btnGo.UseVisualStyleBackColor = false;
             // 
-            // imglFiles
+            // btnForward
             // 
-            this.imglFiles.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imglFiles.ImageSize = new System.Drawing.Size(32, 64);
-            this.imglFiles.TransparentColor = System.Drawing.Color.Transparent;
+            this.btnForward.BackColor = System.Drawing.Color.Teal;
+            this.btnForward.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnForward.ForeColor = System.Drawing.Color.White;
+            this.btnForward.Location = new System.Drawing.Point(44, 5);
+            this.btnForward.Name = "btnForward";
+            this.btnForward.Size = new System.Drawing.Size(40, 23);
+            this.btnForward.TabIndex = 0;
+            this.btnForward.Text = ">>";
+            this.btnForward.UseVisualStyleBackColor = false;
+            // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.Teal;
+            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.ForeColor = System.Drawing.Color.White;
+            this.btnBack.Location = new System.Drawing.Point(3, 5);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(40, 23);
+            this.btnBack.TabIndex = 0;
+            this.btnBack.Text = "<<";
+            this.btnBack.UseVisualStyleBackColor = false;
             // 
             // frmGoogleDriver
             // 
@@ -263,11 +264,11 @@
             this.Load += new System.EventHandler(this.GoogleDriver_Load);
             this.pnlTop.ResumeLayout(false);
             this.pnlTop.PerformLayout();
-            this.grbContent.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ptbMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbExit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.grbContent.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -287,7 +288,7 @@
         private System.Windows.Forms.PictureBox ptbStatus;
         private System.Windows.Forms.PictureBox ptbExit;
         private System.Windows.Forms.ListView lsvFile;
-        private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.TreeView tvFolders;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtFilePath;
         private System.Windows.Forms.Button btnGo;

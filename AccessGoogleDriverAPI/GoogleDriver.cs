@@ -23,6 +23,7 @@ namespace AccessGoogleDriverAPI
         static string ApplicationName = "Google Driver";
         public UserCredential credential;
        static DriveService service;
+        const int PAGE_SIZE = 10;
         public GoogleDriver()
         {
             using (var stream =
@@ -52,7 +53,7 @@ namespace AccessGoogleDriverAPI
             return service.Files.Get("root").Execute();
         }
 
-        public List<GoogleDriveFile> GetChildrenFiles(string folderId)
+        public List<GoogleDriveFile> GetChildrenFolders(string folderId)
         {
             List<GoogleDriveFile> folderList = new List<GoogleDriveFile>();
 
@@ -78,6 +79,34 @@ namespace AccessGoogleDriverAPI
             return folderList;
         }
 
+        public List<GoogleDriveFile> GetChildrenFilesAndFolders(string folderId)
+        {
+            List<GoogleDriveFile> folderList = new List<GoogleDriveFile>();
+
+            FilesResource.ListRequest request = service.Files.List();
+
+            request.Q = string.Format("'{0}' in parents", folderId);
+            request.Fields = "files(id, name, thumbnailLink, mimeType)";
+
+            Google.Apis.Drive.v3.Data.FileList result = request.Execute();
+            foreach (var file in result.Files)
+            {
+                GoogleDriveFile googleDriveFile = new GoogleDriveFile
+                {
+                    Id = file.Id,
+                    Name = file.Name,
+                    Size = file.Size,
+                    Version = file.Version,
+                    CreatedTime = file.CreatedTime,
+                    Parents = file.Parents,
+                    MimeType = file.MimeType,
+                    Thumbnail = file.ThumbnailLink
+                };
+                folderList.Add(googleDriveFile);
+            }
+            return folderList;
+        }
+
 
         public IList<Google.Apis.Drive.v3.Data.File> ListFile()
         {
@@ -85,7 +114,7 @@ namespace AccessGoogleDriverAPI
             {
              
                FilesResource.ListRequest listRequest = service.Files.List();
-                listRequest.PageSize = 10;
+                listRequest.PageSize = PAGE_SIZE;
                 listRequest.Fields = "nextPageToken, files(id, name, thumbnailLink)";
                 return listRequest.Execute().Files;
             }
@@ -96,6 +125,8 @@ namespace AccessGoogleDriverAPI
             }      
         }
 
+
+    
 
 
         public static void CreateFolderOnDrive(string Folder_Name)
