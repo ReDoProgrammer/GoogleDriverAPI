@@ -79,6 +79,45 @@ namespace AccessGoogleDriverAPI
             var file = request.Execute();
         }
 
+        //get all files from Google Drive.    
+        public static List<GoogleDriveFile> GetDriveFiles()
+        {
+   
+            // Define parameters of request.    
+            Google.Apis.Drive.v3.FilesResource.ListRequest FileListRequest = service.Files.List();
+            // for getting folders only.    
+            //FileListRequest.Q = "mimeType='application/vnd.google-apps.folder'";    
+            FileListRequest.Fields = "nextPageToken, files(*)";
+
+            // List files.    
+            IList<Google.Apis.Drive.v3.Data.File> files = FileListRequest.Execute().Files;
+            List<GoogleDriveFile> FileList = new List<GoogleDriveFile>();
+
+
+            // For getting only folders    
+            // files = files.Where(x => x.MimeType == "application/vnd.google-apps.folder").ToList();    
+
+
+            if (files != null && files.Count > 0)
+            {
+                foreach (var file in files)
+                {
+                    GoogleDriveFile File = new GoogleDriveFile
+                    {
+                        Id = file.Id,
+                        Name = file.Name,
+                        Size = file.Size,
+                        Version = file.Version,
+                        CreatedTime = file.CreatedTime,
+                        Parents = file.Parents,
+                        MimeType = file.MimeType
+                    };
+                    FileList.Add(File);
+                }
+            }
+            return FileList;
+        }
+
 
     }
 }
