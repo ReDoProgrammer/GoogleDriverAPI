@@ -46,6 +46,39 @@ namespace AccessGoogleDriverAPI
             }
         }
 
+
+        public Google.Apis.Drive.v3.Data.File GetRootFolder()
+        {
+            return service.Files.Get("root").Execute();
+        }
+
+        public List<GoogleDriveFile> GetChildrenFiles(string folderId)
+        {
+            List<GoogleDriveFile> folderList = new List<GoogleDriveFile>();
+
+            FilesResource.ListRequest request = service.Files.List();
+           
+            request.Q = string.Format("mimeType='application/vnd.google-apps.folder' and '{0}' in parents", folderId);
+            request.Fields = "files(id, name)";
+
+            Google.Apis.Drive.v3.Data.FileList result = request.Execute();
+            foreach (var file in result.Files)
+            {
+                GoogleDriveFile googleDriveFile = new GoogleDriveFile
+                {
+                    Id = file.Id,
+                    Name = file.Name,
+                    Size = file.Size,
+                    Version = file.Version,
+                    CreatedTime = file.CreatedTime,
+                    Parents = file.Parents
+                };
+                folderList.Add(googleDriveFile);
+            }
+            return folderList;
+        }
+
+
         public IList<Google.Apis.Drive.v3.Data.File> ListFile()
         {
             try
@@ -80,7 +113,7 @@ namespace AccessGoogleDriverAPI
         }
 
         //get all files from Google Drive.    
-        public static List<GoogleDriveFile> GetDriveFiles()
+        public List<GoogleDriveFile> GetDriveFiles()
         {
    
             // Define parameters of request.    
@@ -110,7 +143,8 @@ namespace AccessGoogleDriverAPI
                         Version = file.Version,
                         CreatedTime = file.CreatedTime,
                         Parents = file.Parents,
-                        MimeType = file.MimeType
+                        MimeType = file.MimeType,
+                        Thumbnail = file.ThumbnailLink
                     };
                     FileList.Add(File);
                 }

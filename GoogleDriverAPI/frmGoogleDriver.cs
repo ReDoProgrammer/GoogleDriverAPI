@@ -24,6 +24,9 @@ namespace GoogleDriverAPI
         {
            var gd = new GoogleDriver();
             var lst = gd.ListFile();
+            var files = gd.GetDriveFiles();
+            var root = gd.GetRootFolder();
+            var children = gd.GetChildrenFiles(root.Id);
         }
 
         private void ptbExit_Click(object sender, EventArgs e)

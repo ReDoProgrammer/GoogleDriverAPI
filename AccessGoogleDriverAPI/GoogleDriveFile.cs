@@ -15,5 +15,6 @@ namespace AccessGoogleDriverAPI
         public DateTime? CreatedTime { get; set; }
         public IList<String> Parents { get; set; }
         public String MimeType { get; set; }
+        public String Thumbnail { get; set; }
     }
 }
